@@ -1,14 +1,14 @@
 /** Website template by freewebsitetemplates.com **/
 body {
-	margin:0;
-	padding:0;
+	margin: auto;
+	padding: 0;
 	font-family: Arial, Verdana, Helvetica, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 25px;
-	color:#fff;
+	color: #fff;
 	text-align: justify;
-	background-image:url('../images/bg-body.gif');
-	background-color:#fff9d7;
+	background-image: url('../images/bg-body.gif');
+	background-color: #f4edca;
 }
 a {
 	outline:0;
@@ -96,21 +96,22 @@ a {
 	color:#e3e0d9;
 }
 #page #content {
-	width:680px;
+	width:100%;
 	float:left;
 	display:inline;
-}		
-#page #content #header {
-	background: url("../images/dots.gif");
-	background-position: bottom;
-	background-repeat:repeat-x;
-	height:80px;
-	width:680px;
-	margin-bottom:30px;
 }
-#page #content .content {
-	width:680px;
-}
+	#page #content #header {
+		background: url("../images/dots.gif");
+		background-position: bottom;
+		background-repeat: repeat-x;
+		height: 60px;
+		width: 100%;
+		margin-bottom: 30px;
+		margin:auto;
+	}
+	#page #content .content {
+		width: 100%;
+	}
 #page #content .content img {
 	border:0;
 }
@@ -135,7 +136,8 @@ a {
 #page #content #header ul.navigation li a {
 	text-decoration:none;
 	color:#8c836b;
-	padding: 20px 20px 20px 30px;
+	/*padding: 0px 20px 20px 30px;*/
+	margin-top:-20px;
 	font-family: 'PTSansNarrowRegular';
 }
 #page #content #header ul.navigation li a:hover {
@@ -230,10 +232,10 @@ a {
 	text-align:center;
 }
 /** end of featured style**/
-#page #content .content .section {
-	width:680px;
-	font-family: 'PTSansNarrowRegular';
-}
+	#page #content .content .section {
+		width: 100%;
+		font-family: 'PTSansNarrowRegular';
+	}
 #page #content .content .section .about {
 	width:430px;
 	float:left;
@@ -340,13 +342,13 @@ a {
 	bottom:20px;
 }
 /** style for footer **/
-#page #content #footer {
-	background: url("../images/dots.gif") repeat-x scroll 0 0 transparent;
-	width:680px;
-	padding:30px 0 0 0;
-	margin-top:30px;
-	font-family: 'PTSansNarrowRegular';
-}
+	#page #content #footer {
+		background: url("../images/dots.gif") repeat-x scroll 0 0 transparent;
+		width: 100%;
+		padding: 30px 0 0 0;
+		margin-top: 30px;
+		font-family: 'PTSansNarrowRegular';
+	}
 #page #content #footer ul {
 	margin:0;
 	padding:0;
@@ -358,7 +360,7 @@ a {
 }
 #page #content #footer ul li a {
 	text-decoration:none;
-	font-size:14px;
+	font-size:16px;
 	color:#8c836b;
 }
 #page #content #footer ul li a:hover {
@@ -379,13 +381,13 @@ a {
 }
 #page #content #footer ul.connect {
 	float:right;
-	margin:20px 0;
+	margin:auto;
 }
 #page #content #footer img {
 	border:0;
 }
 #page #content #footer ul.connect {
-	width:290px;
+	width:300px;
 }
 #page #content #footer ul.connect li {
 	margin:0 10px;
@@ -423,20 +425,20 @@ a {
 	filter:alpha(opacity=80); /* Needed for IE8 and old versions */
 }
 /** start inner page content background **/
-#page #content .content .header {
-	background: url("../images/bg-inner-page-top-curve.gif");
-	background-position: top center;
-	background-repeat:no-repeat;
-	width:680px;
-	padding-top:15px;
-}
-#page #content .content .header .footer {
-	background: url("../images/bg-inner-page-bottom-curve.gif");
-	background-position: bottom center;
-	background-repeat:no-repeat;
-	width:680px;
-	padding-bottom:15px;
-}
+	#page #content .content .header {
+		background: url("../images/bg-inner-page-top-curve.gif");
+		background-position: top center;
+		background-repeat: no-repeat;
+		width: 100%;
+		padding-top: 15px;
+	}
+		#page #content .content .header .footer {
+			background: url("../images/bg-inner-page-bottom-curve.gif");
+			background-position: bottom center;
+			background-repeat: no-repeat;
+			width: 100%;
+			padding-bottom: 15px;
+		}
 #page #content .content .header .footer .body {
 	background: url("../images/bg-inner-page-content.gif");
 	background-position: top center;
@@ -457,7 +459,7 @@ a {
 	margin:0;
 	padding:0;
 	color:#8C836B;
-	text-align:left;
+	text-align:center;
 }
 #page #content .content .header .footer .body ul li h2 {
 	margin-bottom:0;
@@ -688,8 +690,9 @@ a {
 #page #content .content .header .footer .body ul.section li.last ul li a {
 	color:#8c836b;
 	font-family: 'PTSansNarrowRegular';
-	font-size:14px;
+	font-size:16px;
 	text-decoration:none;
+	margin:auto;
 }
 #page #content .content .header .footer .body ul.section li.last ul li a:hover {
 	text-decoration:underline;
@@ -1007,7 +1010,7 @@ a {
 	font-size:14px;
 }
 #page #content .content .header .footer .body #connect {
-	width:680px;
+	width:100%;
 	margin:0 auto;
 	text-align:center;
 }

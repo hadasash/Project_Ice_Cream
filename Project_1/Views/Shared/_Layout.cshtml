@@ -10,13 +10,14 @@
     <link href="~/css/style.css" rel="stylesheet" type="text/css">
     <link href="~/css/ie6.css" rel="stylesheet" type="text/css">
     <link href="~/css/ie7.css" rel="stylesheet" type="text/css">
-        
+
 </head>
 <body>
+    <img src="~/https://i.pinimg.com/originals/c5/13/d6/c513d68db7f6143deca014783d0197ba.jpg" alt="Logo"/>
+
     <header>
         <div id="page">
-           
-            <div id="content">
+            <div id="content" style="width:100%">
                 <!-- start of header -->
                 <div id="header">
                     <ul class="navigation">
@@ -50,7 +51,7 @@
     </div>
     <div id="page">
         <div id="content">
-            <div id="footer">
+            <div id="footer"  style="width:100%">
                 <ul>
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Home" asp-action="Index"> Home</a>
@@ -65,7 +66,7 @@
                         <a class="nav-link" asp-controller="User" asp-action="Contact"> Contant US</a>
                     </li>
                 </ul>
-                <span>&copy;2011 <a href="index.html">Frost Sweets Gourmet Ice Cream</a> All Rights Reserved</span>
+                
                 <ul class="connect">
                     <li>
                         FOLLOW US:
@@ -85,10 +86,10 @@
                 </ul>
             </div>
         </div>
-     </div>
-     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="~/js/site.js" asp-append-version="true"></script>
-      @await RenderSectionAsync("Scripts", required: false)
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
