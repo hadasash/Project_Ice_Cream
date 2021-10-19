@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Project_1.Models;
 
-    public class LogInContext : DbContext
+    public class UserContext : DbContext
     {
-        public LogInContext (DbContextOptions<LogInContext> options)
+        public UserContext (DbContextOptions<UserContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Project_1.Models.LogIn> LogIn { get; set; }
+        public DbSet<Project_1.Models.user> user { get; set; }
     }

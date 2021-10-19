@@ -57,6 +57,11 @@ namespace Project_1.Controllers
         {
             if (ModelState.IsValid)
             {
+                weatherClass weather = new weatherClass();
+                var result = weather.CheckWeather(order.City);
+                order.FeelsLike = result.feels_like;
+                order.Humidity = result.humidity;
+                order.Pressure = result.pressure;
                 _context.Add(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

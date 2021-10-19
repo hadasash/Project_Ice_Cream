@@ -57,8 +57,13 @@ namespace Project_1.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(flavor);
-                await _context.SaveChangesAsync();
+                imaggeDAL imaggeDal = new imaggeDAL();
+                bool flag= imaggeDal.CheckImage(flavor.ImagePath);
+                if (flag)
+                {
+                    _context.Add(flavor);
+                    await _context.SaveChangesAsync();
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View(flavor);

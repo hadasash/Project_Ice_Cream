@@ -9,22 +9,22 @@ using Project_1.Models;
 
 namespace Project_1.Controllers
 {
-    public class LogInsController : Controller
+    public class usersController : Controller
     {
-        private readonly LogInContext _context;
+        private readonly UserContext _context;
 
-        public LogInsController(LogInContext context)
+        public usersController(UserContext context)
         {
             _context = context;
         }
 
-        // GET: LogIns
+        // GET: users
         public async Task<IActionResult> Index()
         {
-            return View(await _context.LogIn.ToListAsync());
+            return View(await _context.user.ToListAsync());
         }
 
-        // GET: LogIns/Details/5
+        // GET: users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,43 @@ namespace Project_1.Controllers
                 return NotFound();
             }
 
-            var logIn = await _context.LogIn
+            var user = await _context.user
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (logIn == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(logIn);
+            return View(user);
         }
 
-        // GET: LogIns/Create
+        // GET: users/Create
         public IActionResult Create()
         {
             return View();
         }
+        public IActionResult ShowLogin()
+        {
+            return View("~/Views/User/Login.cshtml");
+        }
 
-        // POST: LogIns/Create
+        // POST: users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] LogIn logIn)
+        public async Task<IActionResult> Create([Bind("Id,UserName,Password,Email")] user user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(logIn);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(logIn);
+            return View(user);
         }
 
-        // GET: LogIns/Edit/5
+        // GET: users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +76,22 @@ namespace Project_1.Controllers
                 return NotFound();
             }
 
-            var logIn = await _context.LogIn.FindAsync(id);
-            if (logIn == null)
+            var user = await _context.user.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return View(logIn);
+            return View(user);
         }
 
-        // POST: LogIns/Edit/5
+        // POST: users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] LogIn logIn)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,Password,Email")] user user)
         {
-            if (id != logIn.Id)
+            if (id != user.Id)
             {
                 return NotFound();
             }
@@ -96,12 +100,12 @@ namespace Project_1.Controllers
             {
                 try
                 {
-                    _context.Update(logIn);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LogInExists(logIn.Id))
+                    if (!userExists(user.Id))
                     {
                         return NotFound();
                     }
@@ -112,10 +116,10 @@ namespace Project_1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(logIn);
+            return View(user);
         }
 
-        // GET: LogIns/Delete/5
+        // GET: users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,30 +127,42 @@ namespace Project_1.Controllers
                 return NotFound();
             }
 
-            var logIn = await _context.LogIn
+            var user = await _context.user
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (logIn == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(logIn);
+            return View(user);
         }
 
-        // POST: LogIns/Delete/5
+        // POST: users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var logIn = await _context.LogIn.FindAsync(id);
-            _context.LogIn.Remove(logIn);
+            var user = await _context.user.FindAsync(id);
+            _context.user.Remove(user);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LogInExists(int id)
+        private bool userExists(int id)
         {
-            return _context.LogIn.Any(e => e.Id == id);
+            return _context.user.Any(e => e.Id == id);
+        }
+
+        public IActionResult Login(string Username , string Password)
+        {
+            foreach (var item in _context.user)
+            {
+                if(item.UserName==Username && item.Password==Password)
+                {
+                    return View("~/Views/Manager/managerHome.cshtml");
+                }
+            }
+            return View("~/Views/User/Login.cshtml");
         }
     }
 }

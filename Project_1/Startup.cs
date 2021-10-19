@@ -31,8 +31,11 @@ namespace Project_1
             services.AddDbContext<OrdersContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("OrdersContext")));
 
-            services.AddDbContext<LogInContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("LogInContext")));
+            services.AddDbContext<UserContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("UserContext")));
+
+            //services.AddDbContext<LogInContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("LogInContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
