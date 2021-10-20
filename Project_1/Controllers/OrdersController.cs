@@ -62,6 +62,7 @@ namespace Project_1.Controllers
                 order.FeelsLike = result.feels_like;
                 order.Humidity = result.humidity;
                 order.Pressure = result.pressure;
+                order.Date = DateTime.Today;
                 _context.Add(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
