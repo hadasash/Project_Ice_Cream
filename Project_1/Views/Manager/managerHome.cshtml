@@ -1,6 +1,212 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+
 }
-<h1>hello</h1>
+<head>
+
+    <meta charset="utf-8" />
+    <title>
+
+    </title>
+    <style>
+        #div1 {
+            margin-top: 70px;
+            width: 100%;
+            height: 350px;
+            background-image: url(https://i.pinimg.com/originals/c5/13/d6/c513d68db7f6143deca014783d0197ba.jpg);
+            background-size: 100% 100%;
+            animation: anim1 ease-in-out 30s infinite;
+        }
+
+        @@keyframes anim1 {
+            0% {
+                background-image: url(https://i.pinimg.com/originals/c5/13/d6/c513d68db7f6143deca014783d0197ba.jpg)
+            }
+
+            20% {
+                background-image: url(https://littlefaifo.com/wp-content/uploads/2021/03/ourstory_012-6.jpg)
+            }
+
+            40% {
+                background-image: url(https://portsoyicecream.co.uk/site/wp-content/uploads/ice-cream-collection.jpg)
+            }
+
+            60% {
+                background-image: url(https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/raleigh/Andia_s_open_graph_48eaa030-e564-4f57-8cd0-522cfb0b4afc.jpg)
+            }
+
+            80% {
+                background-image: url('file:///C:\Users\User\source\repos\Project_1\Project_1\wwwroot\images\logo1.jpeg');
+            }
+
+            100% {
+                background-image: url(https://i.pinimg.com/originals/c5/13/d6/c513d68db7f6143deca014783d0197ba.jpg)
+            }
+        }
+    </style>
+</head>
+
+<div id="div1">
+</div>
+<h1 style="font-size:25px; margin-top:25px">
+    ORDER YOUR GELATO PRODUCTS ONLINE
+</h1>
+<ul>
+    <li>
+        <p>
+            Our job is to make people happy. Yes we make amazing gelato with the best ingredients and quality and warmth. All in the name of putting a smile on someone's face.<br />
+            You can now order Gelato Tubs and other Gelato Products and have them home delivered to you.<br />
+            Getting our Gelato products to you when you want them is our priority. we have EXPRESS SHIPPING .
+        </p>
+    </li>
+</ul>
+<head>
+    <meta charset="UTF-8">
+    <title>Create an FAQ Page with Show and Hide Questions and Answers using jQuery</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+            $(document).ready(function () {
+
+                $('.faq_question').click(function () {
+
+                    if ($(this).parent().is('.open')) {
+                        $(this).closest('.faq').find('.faq_answer_container').animate({ 'height': '0' }, 500);
+                        $(this).closest('.faq').removeClass('open');
+
+                    } else {
+                        var newHeight = $(this).closest('.faq').find('.faq_answer').height() + 'px';
+                        $(this).closest('.faq').find('.faq_answer_container').animate({ 'height': newHeight }, 500);
+                        $(this).closest('.faq').addClass('open');
+                    }
+                });
+            });
+    </script>
+
+    <!-- CSS -->
+    <style>
+
+        /*FAQS*/
+        .faq_question {
+            color: #fff;
+            border-bottom: 2px solid rgba(255,255,255,0.8);
+            margin-bottom: 0.8rem;
+            align-items: center;
+            padding: 0.6rem 1rem;
+            justify-content: space-between;
+            display: flex;
+            cursor: pointer;
+            font-weight: bold;
+            background-image: linear-gradient(90deg, #ff759f 0%, #ff5860 100%);
+            box-shadow: 0 0 5px 0 rgb(255,88,96,0.5);
+            opacity: 0.85;
+            border-radius: 9px;
+            transition: all 0.3s ease;
+        }
+
+        .faq_answer_container {
+            height: 0px;
+            overflow: hidden;
+            padding: 0px;
+            background: rgb(255,203,200,0.3);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+            .faq_answer_container p {
+                font-weight: 300;
+                padding: 1rem;
+            }
+    </style>
+
+
+</head>
+<body>
+
+    <!-- HTML -->
+    <div class="faq_container">
+        <div class="faq">
+            <div class="faq_question">
+                + ARE GELATO PRODUCTS KOSHER?<br />
+            </div>
+            <div class="faq_answer_container">
+                <div class="faq_answer">
+                    A: GELATO Franchisor SPV LLC is certified kosher by KOF-K Kosher Supervision. KOF-K Kosher Supervision, one of the largest and most accepted kosher agencies in the U.S., which approves all ingredients that GELATO Corporation distributes to our franchisees. Shoppes may carry additional ingredients that are not kosher certified, and/or may not use kosher practices in the shoppe. Please check with your local Carvel shoppe or our store locator to see if a specific shoppe is kosher certified.
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq_question">
+                + IS IT POSSIBLE TO TOUR A GELATO®️ STORE OR FACILITY?
+            </div>
+            <div class="faq_answer_container">
+                <div class="faq_answer">
+                    A: Policies and participation may vary between locations. A tour of your local GELATO Shoppe should be arranged through the store owner or manager. Public tours of our production facilities are not available for sanitary and quality reasons.
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq_question">
+                + ANIMAL PRODUCTS
+            </div>
+            <div class="faq_answer_container">
+                <div class="faq_answer">
+                    A: The only animal products are milk and eggs. The mono and diglycerides are derived from soy, not from an animal source.
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq_question">
+                + GLUTEN
+            </div>
+            <div class="faq_answer_container">
+                <div class="faq_answer">
+                    A: Most of our ice creams are gluten-free. However, the chocolate crunchies that are found in our ice cream cakes are not gluten-free. Any of our Carvel retail stores will be happy to substitute something else, such as fudge, for crunchies. Our individual product pages identify products that are gluten- friendly.
+
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq_question">
+                + SUGARS IN OUR NO SUGAR ADDED/LOW FAT ICE CREAM
+
+            </div>
+            <div class="faq_answer_container">
+                <div class="faq_answer">
+                    A: The sweeteners used in GELATO No Sugar Added/Low Fat ice cream are Lactitol, Acesulfame Potassium, and Aspartame.
+
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq_question">
+                + ALCOHOL IN PRODUCTS
+
+            </div>
+            <div class="faq_answer_container">
+                <div class="faq_answer">
+                    A: Most of the flavors added to our ice cream mixes contain alcohol. Alcohol is a common carrier for flavors, and in the finished product, there is a low level. The processing of our ice cream causes most of the alcohol to dissipate but we cannot guarantee that our products do not contain alcohol.
+                </div>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="faq_question">
+                + NEED FURTHER HELP?
+
+
+            </div>
+            <div class="faq_answer_container">
+                <div class="faq_answer">
+                    A: Call us toll free sunday through Friday, 8-5 Eastern Standard Time at 058-7513642, or email us at GELATO@focusbrands.com
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>

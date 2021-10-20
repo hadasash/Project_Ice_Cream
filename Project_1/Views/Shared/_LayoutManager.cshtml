@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Project_1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <title>Website Template</title>
+    <link href="~/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/css/ie6.css" rel="stylesheet" type="text/css">
+    <link href="~/css/ie7.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <img src="https://i.pinimg.com/originals/c5/13/d6/c513d68db7f6143deca014783d0197ba.jpg" alt="Logo" style="width: 24%; height: 120px; padding:initial" />
+
+
+    <header>
+        <div id="page">
+            <div id="content" style="width:100%; margin:-60px 0px 0px 0px">
+                <!-- start of header -->
+                <div id="header">
+                    <ul class="navigation">
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-controller="Users" asp-action="ShowLogin"> Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Flavors" asp-action="Index"> Flavors</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="User" asp-action="About"> About Us</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Orders" asp-action="CreateManager"> Order</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="User" asp-action="Contact"> Contant US</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <div id="page">
+        <div id="content">
+            <div id="footer" style="width:100%">
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index"> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="User" asp-action="About"> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Flavors" asp-action="Index"> Flavors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="User" asp-action="Contact"> Contant US</a>
+                    </li>
+                </ul>
+
+                <ul class="connect">
+                    <li>
+                        FOLLOW US:
+                    </li>
+                    <li>
+                        <a class="facebook" href="http://www.freewebsitetemplates.com/go/facebook">&nbsp;</a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="http://www.freewebsitetemplates.com/go/twitter/">&nbsp;</a>
+                    </li>
+                    <li>
+                        <a class="email" href="http://www.freewebsitetemplates.com/misc/contact">&nbsp;</a>
+                    </li>
+                    <li>
+                        <a class="googleplus" href="http://www.freewebsitetemplates.com/go/googleplus/">&nbsp;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

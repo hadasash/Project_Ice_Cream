@@ -34,7 +34,7 @@ namespace Project_1.Models
             Root TheTags = JsonConvert.DeserializeObject<Root>(response);
             foreach (Tag item in TheTags.result.tags)
             {
-                if (item.tag.en == "ice cream" && item.confidence > 30)
+                if (item.tag.en == "food" && item.confidence > 10)
                     return true;
             }
             return false;
