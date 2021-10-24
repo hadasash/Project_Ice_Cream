@@ -34,6 +34,9 @@ namespace Project_1
             services.AddDbContext<UserContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("UserContext")));
 
+            services.AddDbContext<FlavorUserContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("FlavorUserContext")));
+
             //services.AddDbContext<LogInContext>(options =>
             //        options.UseSqlServer(Configuration.GetConnectionString("LogInContext")));
         }

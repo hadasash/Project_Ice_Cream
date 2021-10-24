@@ -9,22 +9,22 @@ using Project_1.Models;
 
 namespace Project_1.Controllers
 {
-    public class usersController : Controller
+    public class FlavorUsersController : Controller
     {
-        private readonly UserContext _context;
+        private readonly FlavorUserContext _context;
 
-        public usersController(UserContext context)
+        public FlavorUsersController(FlavorUserContext context)
         {
             _context = context;
         }
 
-        // GET: users
+        // GET: FlavorUsers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.user.ToListAsync());
+            return View(await _context.FlavorUser.ToListAsync());
         }
 
-        // GET: users/Details/5
+        // GET: FlavorUsers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,43 +32,39 @@ namespace Project_1.Controllers
                 return NotFound();
             }
 
-            var user = await _context.user
+            var flavorUser = await _context.FlavorUser
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (flavorUser == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(flavorUser);
         }
 
-        // GET: users/Create
+        // GET: FlavorUsers/Create
         public IActionResult Create()
         {
             return View();
         }
-        public IActionResult ShowLogin()
-        {
-            return View("~/Views/User/Login.cshtml");
-        }
 
-        // POST: users/Create
+        // POST: FlavorUsers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,Password,Email")] user user)
+        public async Task<IActionResult> Create([Bind("Id,Name,ImagePath,Description")] FlavorUser flavorUser)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(flavorUser);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(flavorUser);
         }
 
-        // GET: users/Edit/5
+        // GET: FlavorUsers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,22 +72,22 @@ namespace Project_1.Controllers
                 return NotFound();
             }
 
-            var user = await _context.user.FindAsync(id);
-            if (user == null)
+            var flavorUser = await _context.FlavorUser.FindAsync(id);
+            if (flavorUser == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(flavorUser);
         }
 
-        // POST: users/Edit/5
+        // POST: FlavorUsers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,Password,Email")] user user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ImagePath,Description")] FlavorUser flavorUser)
         {
-            if (id != user.Id)
+            if (id != flavorUser.Id)
             {
                 return NotFound();
             }
@@ -100,12 +96,12 @@ namespace Project_1.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(flavorUser);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!userExists(user.Id))
+                    if (!FlavorUserExists(flavorUser.Id))
                     {
                         return NotFound();
                     }
@@ -116,10 +112,10 @@ namespace Project_1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(flavorUser);
         }
 
-        // GET: users/Delete/5
+        // GET: FlavorUsers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -127,42 +123,30 @@ namespace Project_1.Controllers
                 return NotFound();
             }
 
-            var user = await _context.user
+            var flavorUser = await _context.FlavorUser
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (flavorUser == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(flavorUser);
         }
 
-        // POST: users/Delete/5
+        // POST: FlavorUsers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.user.FindAsync(id);
-            _context.user.Remove(user);
+            var flavorUser = await _context.FlavorUser.FindAsync(id);
+            _context.FlavorUser.Remove(flavorUser);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool userExists(int id)
+        private bool FlavorUserExists(int id)
         {
-            return _context.user.Any(e => e.Id == id);
-        }
-
-        public IActionResult Login(string Username , string Password)
-        {
-            foreach (var item in _context.user)
-            {
-                if(item.UserName==Username && item.Password==Password)
-                {
-                    return View("~/Views/Manager/managerHome.cshtml");
-                }
-            }
-            return View("~/Views/Manager/managerHome.cshtml");
+            return _context.FlavorUser.Any(e => e.Id == id);
         }
     }
 }
