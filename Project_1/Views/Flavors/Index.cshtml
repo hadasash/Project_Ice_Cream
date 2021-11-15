@@ -10,9 +10,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Name)
-            </th>
+            </th>*@
             @*<th>
                     @Html.DisplayNameFor(model => model.ImagePath)
                 </th>
@@ -26,14 +26,14 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td style="color: #ab6f30;font-weight: bold;font-size:22px; font-family: 'PTSansNarrowRegular'">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
                     <img src="
-                @Html.DisplayFor(modelItem => item.ImagePath)" style="height:130px;width:130px" />
+                @Html.DisplayFor(modelItem => item.ImagePath)" style="height: 150px; width: 150px; border-radius: 50%" />
                 </td>
-                <td>
+                <td  style="color: #ab6f30; font-size: 22px; font-family: 'PTSansNarrowRegular'">
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
